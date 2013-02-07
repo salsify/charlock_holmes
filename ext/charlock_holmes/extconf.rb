@@ -43,9 +43,10 @@ if !icu4c and !(have_library 'icui18n' and have_header 'unicode/ucnv.h')
   STDERR.puts "*********** icu required (brew install icu4c or apt-get install libicu-dev) ***********"
   STDERR.puts "***************************************************************************************"
   exit(1)
-else
+elsif icu4c
   $INCFLAGS << " -I#{icu4c}/include "
   $LDFLAGS  << " -L#{icu4c}/lib "
+  STDERR.puts "Using icu from #{icu4c}"
 end
 
 ##
