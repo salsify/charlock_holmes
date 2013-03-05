@@ -44,7 +44,7 @@ if !icu4c and !(have_library 'icui18n' and have_header 'unicode/ucnv.h')
   STDERR.puts "***************************************************************************************"
   exit(1)
 elsif icu4c
-  $CPPFLAGS << " -I#{icu4c}/include "
+  $INCFLAGS << " -I#{icu4c}/include "
   $LDFLAGS  << " -L#{icu4c}/lib "
   STDERR.puts "Using icu from #{icu4c}"
 end
@@ -69,7 +69,7 @@ end
 
 FileUtils.cp "#{CWD}/dst/lib/libmagic.a", "#{CWD}/libmagic_ext.a"
 
-$CPPFLAGS[0,0] = " -I#{CWD}/dst/include "
+$INCFLAGS[0,0] = " -I#{CWD}/dst/include "
 $LDFLAGS << " -L#{CWD} "
 
 dir_config 'magic'
