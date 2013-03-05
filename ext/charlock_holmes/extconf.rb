@@ -37,7 +37,7 @@ if !icu4c and !have_library 'icui18n'
   end
 end
 
-if !icu4c and !(have_library 'icui18n' and have_header 'unicode/ucnv.h')
+if !icu4c or !(have_library 'icui18n' and have_header 'unicode/ucnv.h')
   STDERR.puts "\n\n"
   STDERR.puts "***************************************************************************************"
   STDERR.puts "*********** icu required (brew install icu4c or apt-get install libicu-dev) ***********"
