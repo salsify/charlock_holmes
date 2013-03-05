@@ -32,9 +32,8 @@ if !icu4c && !have_library 'icui18n'
   elsif File.exists?("/usr/local/Cellar/icu4c")
     '/usr/local/Cellar'
   end
-  if base
-    icu4c = Dir[File.join(base, 'Cellar/icu4c/*')].sort.last
-  end
+
+  icu4c = Dir[File.join(base, 'Cellar/icu4c/*')].sort.last if base
 end
 
 unless !icu4c or (have_library 'icui18n' and have_header 'unicode/ucnv.h')
