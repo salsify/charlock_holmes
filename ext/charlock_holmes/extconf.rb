@@ -61,7 +61,7 @@ Dir.chdir("#{CWD}/src") do
 
   sys("tar zxvf #{src}")
   Dir.chdir(dir) do
-    sys("CPPFLAGS=${$CPPFLAGS} LDFLAGS=${LDFLAGS} ./configure --prefix=#{CWD}/dst/ --disable-shared --enable-static --with-pic")
+    sys("./configure --prefix=#{CWD}/dst/ --disable-shared --enable-static --with-pic")
     sys("make -C src install")
     sys("make -C magic install")
   end
