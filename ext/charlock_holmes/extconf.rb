@@ -26,7 +26,7 @@ dir_config 'icu'
 icu4c = ENV['ICU_DIR'] if ENV['ICU_DIR']
 
 # detect homebrew installs
-if !icu4c && !have_library 'icui18n'
+if !icu4c and !have_library 'icui18n'
   base = if !`which brew`.empty?
     `brew --prefix`.strip
   elsif File.exists?("/usr/local/Cellar/icu4c")
@@ -39,7 +39,7 @@ if !icu4c && !have_library 'icui18n'
   end
 end
 
-if !icu4c && !(have_library 'icui18n' and have_header 'unicode/ucnv.h')
+if !icu4c and !(have_library 'icui18n' and have_header 'unicode/ucnv.h')
   STDERR.puts "\n\n"
   STDERR.puts "***************************************************************************************"
   STDERR.puts "*********** icu required (brew install icu4c or apt-get install libicu-dev) ***********"
